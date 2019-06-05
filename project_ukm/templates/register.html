@@ -1,0 +1,81 @@
+
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+</head>
+
+ <body>
+ <form action="{% url 'addUser' %}" method="post">
+
+    {% csrf_token %}
+
+
+  <div class="container">
+
+      {% if messsages %}
+
+        < class="messagelist">
+
+            {% for msg in messages %}
+
+           <li>
+
+                <div class="alert alert-{{ msg.level_tag }}" role="alert">
+                    {{ msg.messages }}
+
+                </div>
+           </li>>
+             {% endfor %}
+
+
+         </ul>
+
+      {% endif %}
+
+      <div class="card container my-5 col-lg-5">
+           <div class="card-body p-7">
+              <div class="text-center">
+                <h1 class="h4 text-gray-900 mb-4">Registration</h1>
+              </div>
+
+               <div class="form-group">
+                   <label>Nama UKM</label>
+                   {{ form.Nama_UKM }}
+               </div>
+               <div class="form-group">
+                    <label>Username</label>
+                   {{ form.Username }}
+               </div>
+               <div class="form-group">
+                    <label>Password</label>
+                   {{ form.Password }}
+               </div>
+               <div class="form-group">
+                    <label>Email</label>
+                   {{ form.Email }}
+               </div>
+               <div class="form-group">
+                    <label>No Hp</label>
+                   {{ form.No_HP }}
+               </div>
+               <div class="form-group">
+                    <label>NAlamat</label>
+                   {{ form.Alamat }}
+               </div>
+
+
+               <div class="submit-container move-submit-down">
+                 <input type="submit" value="Register Account" class="btn btn-primary btn-user btn-block" >
+               </div>
+
+            </div>
+       </div>
+
+   </div>
+ </form>
+ </body>
+</html>
+
